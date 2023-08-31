@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Age Calculator</title>
+   <!-- daisyUI CDN -->
+   <link href="https://cdn.jsdelivr.net/npm/daisyui@3.6.4/dist/full.css" rel="stylesheet" type="text/css" />
+   <script src="https://cdn.tailwindcss.com"></script>
+   <!-- External CSS StyleSheet -->
+   <!-- <link rel="stylesheet" href="style.css"> -->
+</head>
+<body class="">
+   <div class="parent h-[100vh] w-full bg-sky-300 text-center flex justify-center items-center">
+      <div class="">
+         <div class="mb-10 flex flex-col md:flex-row flex-wrap justify-center items-center gap-4">
+            <input type="date" id="input" class="border w-[50%] bg-white text-[2rem] p-2 rounded-md">
+            <button id="button" class="btn-secondary btn-active text-white text-[2rem] p-[10px] font-medium hover:text-pink-600 hover:bg-white rounded-md">Calc Age</button>
+         </div>
+         <div class="flex flex-col md:flex-row justify-center items-center gap-4">
+            <ul class="flex gap-4">
+               <li class="text-[2rem] text-white"><span class="block py-[1.25rem] px-[2.5rem] bg-white text-sky-900 text-[2.5rem] rounded-lg">00</span>Years</li>
+               <li class="text-[2rem] text-white"><span class="block py-[1.25rem] px-[2.5rem] bg-white text-sky-900 text-[2.5rem] rounded-lg">00</span>Months</li>
+               <li class="text-[2rem] text-white"><span class="block py-[1.25rem] px-[2.5rem] bg-white text-sky-900 text-[2.5rem] rounded-lg">00</span>Days</li>
+            </ul>
+            <ul class="flex gap-4">
+               <li class="text-[2rem] text-white"><span class="block py-[1.25rem] px-[2.5rem] bg-white text-sky-900 text-[2.5rem] rounded-lg">00</span>Hours</li>
+               <li class="text-[2rem] text-white"><span class="block py-[1.25rem] px-[2.5rem] bg-white text-sky-900 text-[2.5rem] rounded-lg">00</span>Minutes</li>
+               <li class="text-[2rem] text-white"><span class="block py-[1.25rem] px-[2.5rem] bg-white text-sky-900 text-[2.5rem] rounded-lg">00</span>Seconds</li>
+            </ul>
+         </div>
+      </div>
+   </div>
+
+   <script src="calculator.js"></script>
+</body>
+</html>
