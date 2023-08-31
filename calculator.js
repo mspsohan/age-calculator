@@ -1,40 +1,52 @@
-const button = document.getElementById('button');
-const input = document.getElementById('input');
-const spans = document.querySelectorAll('span');
+document.addEventListener('DOMContentLoaded', function () {
+   const button = document.getElementById('button');
+   const input = document.getElementById('input');
+   const span = document.querySelectorAll('span');
 
-button.addEventListener('click', function () {
-   calc();
-   setInterval(calc, 1000);
-});
+   function calc() {
+      const date = new Date()
 
-function formatValue(value) {
-   return value < 10 ? `0${value}` : `${value}`;
-}
+      const days = date.getDate()
+      const month = date.getMonth()
+      const year = date.getFullYear()
+      const hours = date.getHours()
+      const minutes = date.getMinutes()
+      const seconds = date.getSeconds()
+   
+      const inputDate = input.value
+      const arr = inputDate.split("-");
 
-function calc() {
-   const userDate = new Date(input.value);
-   if (isNaN(userDate)) {
-      return; 
+      const inputYear = parseInt(arr[0])
+      const inputMonth = parseInt(arr[1]) - 1
+      const inputDays = parseInt(arr[2])
+   
+      const inputTime = arr[2].split('T')
+      const inputTimes = inputTime[1].split(":") 
+
+      const inputHours = parseInt(inputTimes[0])
+      const inputMinutes = parseInt(inputTimes[1])
+   
+      const userYear = year - inputYear;
+      const userMonth = month - inputMonth;
+      const userDay = days - inputDays;
+   
+      const userHours = hours - inputHours;
+      const userMinutes = minutes - inputMinutes;
+   
+      // const userHours = userHour < 10 ? "0" + userHour : userHour;
+      // const userMinutes = userMinute < 10 ? "0" + userMinute : userMinute;
+      const userSeconds = seconds < 10 ? "0" + seconds : seconds;
+
+      span[0].textContent = userYear;
+      span[1].textContent = userMonth;
+      span[2].textContent = userDay;
+      span[3].textContent = userHours;
+      span[4].textContent = userMinutes;
+      span[5].textContent = userSeconds;
    }
-   const currentDate = new Date();
 
-   const millisecondsDiff = currentDate - userDate;
-   const secondsDiff = Math.floor(millisecondsDiff / 1000);
-   const minutesDiff = Math.floor(secondsDiff / 60);
-   const hoursDiff = Math.floor(minutesDiff / 60);
-   const daysDiff = Math.floor(hoursDiff / 24);
-
-   const years = Math.floor(daysDiff / 365);
-   const months = Math.floor((daysDiff % 365) / 30);
-   const remainingDays = daysDiff % 30;
-   const remainingHours = hoursDiff % 24;
-   const remainingMinutes = minutesDiff % 60;
-   const remainingSeconds = secondsDiff % 60;
-
-   spans[0].textContent = formatValue(years);
-   spans[1].textContent = formatValue(months);
-   spans[2].textContent = formatValue(remainingDays);
-   spans[3].textContent = formatValue(remainingHours);
-   spans[4].textContent = formatValue(remainingMinutes);
-   spans[5].textContent = formatValue(remainingSeconds);
-}
+   button.addEventListener('click', function () {
+      calc();
+      setInterval(calc, 1000);
+   });
+});
